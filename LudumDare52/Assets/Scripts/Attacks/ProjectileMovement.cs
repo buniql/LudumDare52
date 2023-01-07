@@ -21,7 +21,7 @@ public class ProjectileMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.position += transform.up * Speed;
+        transform.position += transform.up * Speed * Time.fixedDeltaTime;
         StartCoroutine(DestoryInTime());
     }
 
