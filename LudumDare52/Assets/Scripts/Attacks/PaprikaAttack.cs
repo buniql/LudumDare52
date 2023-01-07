@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CarrotAttack : MonoBehaviour
+public class PaprikaAttack : MonoBehaviour
 {
     public float AttackRange;
 
     public float AttackCooldown;
 
     public GameObject WeaponPrefab;
+
+    public int ProjectileAmount;
 
     private Transform attackTarget;
     private bool currentlyAttacking = false;
@@ -20,7 +22,6 @@ public class CarrotAttack : MonoBehaviour
         if (!currentlyAttacking)
         {
             StartCoroutine(Attack());
-            Debug.Log("new Attack");
         }
     }
 
@@ -36,7 +37,6 @@ public class CarrotAttack : MonoBehaviour
             {
                 result = child;
                 minDistance = distance;
-                Debug.Log("new Target");
             }
         }
 
@@ -48,15 +48,17 @@ public class CarrotAttack : MonoBehaviour
     {
         if (attackTarget != null)
         {
-            Debug.Log("SHOOT!");
             currentlyAttacking = true;
-            GameObject projectile = GameObject.Instantiate(WeaponPrefab, new Vector3(transform.position.x, transform.position.y, -1), Quaternion.identity);
-            Debug.Log("Instantiating Projectile");
-            Vector2 targetPosition = new Vector2(attackTarget.position.x - transform.position.x,
-                attackTarget.position.y - transform.position.y);
-            float angle = Mathf.Atan2(targetPosition.y, targetPosition.x) * Mathf.Rad2Deg;
-            projectile.transform.rotation = Quaternion.Euler(new Vector3(0,0, angle - 90f));
-        
+
+            for (int i = 0; i < ProjectileAmount; i++)
+            {
+                Vector2 targetPosition = new Vector2(attackTarget.position.x - transform.position.x,
+                    attackTarget.position.y - transform.position.y);
+                float angle = Mathf.Atan2(targetPosition.y, targetPosition.x) * Mathf.Rad2Deg;
+                angle = 90f + i * (360f / ProjectileAmount);
+                GameObject.Instantiate(WeaponPrefab, new Vector3(transform.position.x, transform.position.y, -1), Quaternion.Euler(new Vector3(0,0, angle)));
+            }
+
             yield return new WaitForSeconds(AttackCooldown);
             currentlyAttacking = false;
         }

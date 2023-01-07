@@ -5,8 +5,18 @@ using UnityEngine;
 
 public class ProjectileMovement : MonoBehaviour
 {
+    public AttackType ProjectileAttackType;
+    public int AttackDamage;
     public float Speed;
     public float Livetime;
+
+    public enum AttackType
+    {
+        BellPepper,
+        Carrot,
+        Pumpkin,
+        Melon
+    }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -14,7 +24,11 @@ public class ProjectileMovement : MonoBehaviour
         transform.position += transform.up * Speed;
         StartCoroutine(DestoryInTime());
     }
-    
+
+    private void CarrotProjectile()
+    {
+        transform.position += transform.up * Speed;
+    }
     private IEnumerator DestoryInTime()
     {
         yield return new WaitForSeconds(Livetime);
