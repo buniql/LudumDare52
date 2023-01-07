@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ProjectileAttackType: 0
-  AttackDamage: 0
+  AttackDamage: 1
   Speed: 6
   Livetime: 0.4
   insectTag: Insect

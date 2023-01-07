@@ -40,14 +40,4 @@ public class InsectMovement : MonoBehaviour
             GameObject.Destroy(this.gameObject);
         }
     }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        Debug.Log("trigger enter in insect");
-    }
-
-    void OnCollisionEnter2D(Collision2D other)
-    {
-        Debug.Log("collision enter in insect");
-    }
 }

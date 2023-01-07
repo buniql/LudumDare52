@@ -10,7 +10,6 @@ public class ProjectileMovement : MonoBehaviour
     public float Speed;
     public float Livetime;
     private CircleCollider2D Collider;
-    public String insectTag;
 
     public enum AttackType
     {
@@ -43,23 +42,10 @@ public class ProjectileMovement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("trigger enter");
-        if (other.gameObject.tag == insectTag)
+        if (other.gameObject.tag == "Insect")
         {
-            Debug.Log("is insect!");
-            // get insect type and apply damage
-
-            GameObject.Destroy(this.gameObject);
-        }
-    }
-
-    void OnCollisionEnter2D(Collision2D other)
-    {
-        Debug.Log("collision enter");
-        if (other.gameObject.tag == insectTag)
-        {
-            Debug.Log("is insect!");
-            // get insect type and apply damage
+            // get insect HP script and apply damage
+            other.GetComponent<InsectHealth>().TakeDamage(AttackDamage);
 
             GameObject.Destroy(this.gameObject);
         }

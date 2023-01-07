@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1902853439879365756}
   - component: {fileID: 1902853439879365757}
   - component: {fileID: 1902853439879365731}
+  - component: {fileID: 6036965639578951330}
   - component: {fileID: -8509089275330090822}
   m_Layer: 0
   m_Name: Insect
@@ -99,6 +100,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovementSpeed: 5
+--- !u!114 &6036965639578951330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902853439879365758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8306d1c659f3cf846a815c52595db264, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 10
 --- !u!58 &-8509089275330090822
 CircleCollider2D:
   m_ObjectHideFlags: 0
