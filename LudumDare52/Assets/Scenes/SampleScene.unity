@@ -1886,7 +1886,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 6.59375
+  orthographic size: 6.4375
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2105,7 +2105,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: c9f9c3f909c7b1d429d8695c09d44f7a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10792,6 +10792,7 @@ MonoBehaviour:
   - {fileID: 4283932796970159396, guid: 1656624a30947114a8697851a470d402, type: 3}
   - {fileID: 8381329438724634438, guid: 3a66e129480cc6e41ab772bc97121c23, type: 3}
   - {fileID: 6360163734956182820, guid: 26fb080bac4ac554c94f6c8775847241, type: 3}
+  - {fileID: 384647465451457228, guid: 41eec9259ed80354e929a4f04c8dc4a9, type: 3}
   Tilemap: {fileID: 840806172}
   Camera: {fileID: 519420031}
   MouseOffset: {x: 0.5, y: 0.5}
