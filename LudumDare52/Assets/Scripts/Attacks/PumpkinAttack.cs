@@ -66,7 +66,7 @@ public class PumpkinAttack : MonoBehaviour
         jumpTransform.position = transform.position;
         float onRoute = Mathf.Min(Vector3.Distance(targetPosition, transform.position), Vector3.Distance(startPosition, transform.position));
         float height = onRoute * 0.5f;
-        jumpTransform.Translate(new Vector3(0, height, 0));
+        jumpTransform.Translate(new Vector3(0, height, -0.1f));
     }
     
     private Transform FindNearestTarget()
