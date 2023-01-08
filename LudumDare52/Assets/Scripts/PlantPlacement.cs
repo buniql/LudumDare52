@@ -76,5 +76,9 @@ public class PlantPlacement : MonoBehaviour
         {
             currentPlantPrefabIndex = 4;
         }
+        if (Input.GetKey("6"))
+        {
+            currentPlantPrefabIndex = 5;
+        }
     }
 }
