@@ -40,7 +40,7 @@ public class PlantStats : MonoBehaviour
         PlantStat stats = new PlantStat();
         foreach (var stat in Stats)
         {
-            if (stat.Name.Contains("Brokkoli"))
+            if (stat.Name.Contains("Broccoli"))
             {
                 stats = stat;
             }
