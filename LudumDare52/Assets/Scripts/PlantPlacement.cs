@@ -50,6 +50,11 @@ public class PlantPlacement : MonoBehaviour
             
             if (canSpawn && Tilemap.GetTile(positionToCheck).ToString().Contains("Field"))
             {
+                PlantStat currentPlantStat = transform.gameObject.GetComponent<PlantStats>().Stats[CurrentPlantPrefabIndex];
+                
+                GameObject.Find("GameState").GetComponent<GameState>()
+                    .SetCoins(GameObject.Find("GameState").GetComponent<GameState>().GetCoins() - currentPlantStat.BuyPrice);
+                
                 GameObject currentPlant = GameObject.Instantiate(PlantPrefabs[CurrentPlantPrefabIndex],
                     positionToSpawn, Quaternion.identity);
 
@@ -82,8 +87,6 @@ public class PlantPlacement : MonoBehaviour
 
         if (GameObject.Find("GameState").GetComponent<GameState>().GetCoins() >= currentPlantStat.BuyPrice)
         {
-            GameObject.Find("GameState").GetComponent<GameState>()
-                .SetCoins(GameObject.Find("GameState").GetComponent<GameState>().GetCoins() - currentPlantStat.BuyPrice);
             return true;
         }
 

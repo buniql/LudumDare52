@@ -19,22 +19,23 @@ public class CoinsEarned : MonoBehaviour
         {
             textMesh.text = "+" + Amount;
         }
+        
+        if (Amount != 0 && Input.GetMouseButtonDown(1))
+        {
+            StartCoroutine(FadeColor());
+            StartCoroutine(Destroy());
+            GameObject.Find("Sound").GetComponent<Sound>().PlaySound(6);
+        }
+        else
+        {
+            GameObject.Find("Sound").GetComponent<Sound>().PlaySound(7);
+        }
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Amount != 0)
-        {
-            transform.position += Vector3.up * Time.fixedDeltaTime;
-            StartCoroutine(FadeColor());
-            StartCoroutine(Destroy());
-            //Play Coin Sound
-        }
-        else
-        {
-            //Play Poop Sound
-        }
+        transform.position += Vector3.up * Time.fixedDeltaTime;
     }
 
     private IEnumerator FadeColor()

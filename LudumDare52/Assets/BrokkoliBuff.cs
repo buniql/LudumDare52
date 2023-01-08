@@ -15,6 +15,7 @@ public class BrokkoliBuff : MonoBehaviour
 
     private void Start()
     {
+        GameObject.Find("Sound").GetComponent<Sound>().PlaySound(4);
         PlantStat stats = GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetBrokkoliStats();
         buffDistance = stats.AttackRange;
         attackSpeedBuff = stats.AttackCooldown;

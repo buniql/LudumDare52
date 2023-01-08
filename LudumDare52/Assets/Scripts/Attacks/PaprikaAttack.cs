@@ -57,6 +57,7 @@ public class PaprikaAttack : MonoBehaviour
         {
             currentlyAttacking = true;
 
+            GameObject.Find("Sound").GetComponent<Sound>().PlaySound(1);
             for (int i = 0; i < ProjectileAmount; i++)
             {
                 Vector2 targetPosition = new Vector2(attackTarget.position.x - transform.position.x,
