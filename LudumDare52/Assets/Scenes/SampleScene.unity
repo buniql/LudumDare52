@@ -10809,12 +10809,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlantPrefabs:
-  - {fileID: 3843224865611487533, guid: ae6aa7030133fc945b34604dc701fd1e, type: 3}
-  - {fileID: 4283932796970159396, guid: 1656624a30947114a8697851a470d402, type: 3}
-  - {fileID: 8381329438724634438, guid: 3a66e129480cc6e41ab772bc97121c23, type: 3}
-  - {fileID: 7501000656802261638, guid: 71ed878f4513ec34bb83ad0220bcee38, type: 3}
-  - {fileID: 384647465451457228, guid: 41eec9259ed80354e929a4f04c8dc4a9, type: 3}
-  - {fileID: 612861511701909487, guid: 1a3baf8d7c7665741a23134d1094831b, type: 3}
+  - {fileID: 6710479305125845059, guid: 5ab42e601a6e15a4486aa587360e6c5b, type: 3}
+  - {fileID: 7370671801404067379, guid: c708b48ded1b1014f878609891df6e3d, type: 3}
+  - {fileID: 6236815037357704303, guid: ceb8050ab7fc7004a849cdd1fdf84941, type: 3}
+  - {fileID: 7462256067682679040, guid: f2d2848be510c3540a4b6353e0ed3539, type: 3}
+  - {fileID: 408095528111007330, guid: fbcc8a8cbee37bd4e96fc3da0b68c1b8, type: 3}
+  - {fileID: 128893055823276502, guid: b7020ce3248d4fe42be8b79ff9584d0e, type: 3}
   Tilemap: {fileID: 840806172}
   Camera: {fileID: 519420031}
   MouseOffset: {x: 0.5, y: 0.5}
@@ -10835,26 +10835,32 @@ MonoBehaviour:
     AttackRange: 2
     AttackCooldown: 0.3
     AttackDamage: 1
+    GrowthTime: 5
   - Name: Brokkoli
     AttackRange: 1
     AttackCooldown: 0.2
     AttackDamage: 2
+    GrowthTime: 5
   - Name: Carrot
     AttackRange: 5
     AttackCooldown: 1
     AttackDamage: 4
+    GrowthTime: 5
   - Name: Corn
     AttackRange: 2.5
     AttackCooldown: 0.025
     AttackDamage: 1
+    GrowthTime: 5
   - Name: Melon
     AttackRange: 2
     AttackCooldown: 0
     AttackDamage: 100000
+    GrowthTime: 5
   - Name: Pumpkin
     AttackRange: 2
     AttackCooldown: 5
     AttackDamage: 8
+    GrowthTime: 5
 --- !u!1 &1997063097
 GameObject:
   m_ObjectHideFlags: 0
