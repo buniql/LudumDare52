@@ -37,6 +37,8 @@ public class InsectMovement : MonoBehaviour
 
         if (currentTarget == _path.Count)
         {
+            GameObject gameState = GameObject.Find("GameState");
+            gameState.GetComponent<GameState>().SetHealth(gameState.GetComponent<GameState>().GetHealth() - transform.gameObject.GetComponent<InsectHealth>().Health);
             GameObject.Destroy(this.gameObject);
         }
     }
