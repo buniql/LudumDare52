@@ -120,6 +120,7 @@ public class InsectSpawner : MonoBehaviour
             StartCoroutine(SpawnWave(waves[i]));
             yield return new WaitForSeconds(timeBetweenWaves + waves[i].TimeNeeded());
         }
+        GameObject.Find("Sound").GetComponent<Sound>().PlaySound(8); 
     }
 
     private IEnumerator SpawnWave(Wave wave)

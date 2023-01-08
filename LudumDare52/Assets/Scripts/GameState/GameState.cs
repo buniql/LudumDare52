@@ -31,8 +31,15 @@ public class GameState : MonoBehaviour
 
         if (Health == 0)
         {
-            SceneManager.LoadScene("GameOverScene", LoadSceneMode.Single);
+            StartCoroutine(LoadGameOverScene());
         }
+    }
+
+    private IEnumerator LoadGameOverScene()
+    {
+        GameObject.Find("Sound").GetComponent<Sound>().PlaySound(9);  
+        yield return new WaitForSeconds(7);
+        SceneManager.LoadScene("GameOverScene", LoadSceneMode.Single);
     }
 
     public void SetHealth(int amount)
