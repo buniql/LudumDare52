@@ -8,7 +8,7 @@ using UnityEngine.Tilemaps;
 [System.Serializable]
 public enum InsectEnum
 {
-    Ant, Ladybug, Spider, Bee
+    Ladybug, Ant, Beetle, Caterpillar, Spider, Bee, Snail
 }
 
 [System.Serializable]
@@ -29,15 +29,15 @@ public class InsectSpawner : MonoBehaviour
 {
     public List<Wave> waves;
 
-    public GameObject antPrefab;
     public GameObject ladybugPrefab;
+    public GameObject antPrefab;
+    public GameObject beetlePrefab;
+    public GameObject caterpillarPrefab;
     public GameObject spiderPrefab;
     public GameObject beePrefab;
+    public GameObject snailPrefab;
 
-    public GameObject InsectPrefab;
     public Vector3 SpawnPosition;
-    //public float SpawnCooldown;
-    //private float nextSpawnTime;
 
     public float timeBetweenWaves = 15f;
     public float timeBetweenPacks = 2f;
@@ -81,41 +81,23 @@ public class InsectSpawner : MonoBehaviour
     {
         switch (type)
         {
-            case InsectEnum.Ant:
-                return antPrefab;
-
             case InsectEnum.Ladybug:
                 return ladybugPrefab;
-
+            case InsectEnum.Ant:
+                return antPrefab;
+            case InsectEnum.Beetle:
+                return beetlePrefab;
+            case InsectEnum.Caterpillar:
+                return caterpillarPrefab;
             case InsectEnum.Spider:
                 return spiderPrefab;
-
             case InsectEnum.Bee:
                 return beePrefab;
+            case InsectEnum.Snail:
+                return snailPrefab;
         }
 
-        // failsafe
+        // nOt AlL cOdE pAtHs ReTuRn A vAlUe
         return antPrefab;
     }
-
-    /*
-    public int currentInsectAmount = 1;
-    private void Update()
-    {
-        if (transform.childCount == 0)
-        {
-            StartCoroutine(SpawnInsects(currentInsectAmount));
-            currentInsectAmount++;
-        }
-    }
-
-    private IEnumerator SpawnInsects(int number)
-    {
-        for (int i = 0; i < number; i++)
-        {
-            GameObject insect = GameObject.Instantiate(InsectPrefab, SpawnPosition, Quaternion.identity);
-            insect.transform.parent = this.gameObject.transform;
-            yield return new WaitForSeconds(SpawnCooldown);
-        }
-    }*/
 }

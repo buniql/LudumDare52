@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6036965639578951330}
   - component: {fileID: -8509089275330090822}
   m_Layer: 0
-  m_Name: Spider
+  m_Name: Snail
   m_TagString: Insect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d4d872def0a05394890b4a531e2ecb2b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e0d194dfb0d929449b4f965c8316c177, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8417fa9914f8a0b49ab067ef0df1fe0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 5
+  MovementSpeed: 0.5
 --- !u!114 &6036965639578951330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8306d1c659f3cf846a815c52595db264, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 20
+  Health: 1000
 --- !u!58 &-8509089275330090822
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -128,4 +128,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.45
+  m_Radius: 0.7
