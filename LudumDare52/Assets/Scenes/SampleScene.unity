@@ -10734,17 +10734,19 @@ MonoBehaviour:
       amount: 8
       timeBetweenSpawn: 0.4
   - packs:
-    - type: 2
-      amount: 4
-      timeBetweenSpawn: 0.2
     - type: 3
-      amount: 4
-      timeBetweenSpawn: 0.2
-  antPrefab: {fileID: 1902853439879365758, guid: a0c0e38113f1dd24289b9549d47d0022, type: 3}
+      amount: 20
+      timeBetweenSpawn: 0.4
+    - type: 6
+      amount: 1
+      timeBetweenSpawn: 1
   ladybugPrefab: {fileID: 1902853439879365758, guid: f4e6be5ff4fd5e04a8255af534c36134, type: 3}
+  antPrefab: {fileID: 1902853439879365758, guid: a0c0e38113f1dd24289b9549d47d0022, type: 3}
+  beetlePrefab: {fileID: 1902853439879365758, guid: c588ae9562c9cfc40ad47a73f783545e, type: 3}
+  caterpillarPrefab: {fileID: 1902853439879365758, guid: a717d53bd340ea543b7f2cccb3e48f88, type: 3}
   spiderPrefab: {fileID: 1902853439879365758, guid: 41ff9814ab9ef6945b7651285e2d80ab, type: 3}
   beePrefab: {fileID: 1902853439879365758, guid: cf33971a433e55349a36285c9e7fa9ca, type: 3}
-  InsectPrefab: {fileID: 1902853439879365758, guid: 22d4e798addabda44a47db52eb54d304, type: 3}
+  snailPrefab: {fileID: 1902853439879365758, guid: 7d4324671812f3c439612ea0c4ae50c4, type: 3}
   SpawnPosition: {x: -12.5, y: 0.5, z: -1}
   timeBetweenWaves: 10
   timeBetweenPacks: 2
