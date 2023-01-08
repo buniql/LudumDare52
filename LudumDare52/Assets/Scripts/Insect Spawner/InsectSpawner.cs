@@ -44,7 +44,6 @@ public class InsectSpawner : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("Start spawning");
         StartCoroutine(SpawnEverything());
     }
 
@@ -52,7 +51,6 @@ public class InsectSpawner : MonoBehaviour
     {
         for (int i = 0; i < waves.Count; i++)
         {
-            Debug.Log("Spawning wave " + i);
             StartCoroutine(SpawnWave(waves[i]));
             yield return new WaitForSeconds(timeBetweenWaves);
         }
@@ -60,14 +58,11 @@ public class InsectSpawner : MonoBehaviour
 
     private IEnumerator SpawnWave(Wave wave)
     {
-        Debug.Log("i spawn my wave content now!");
         for (int i = 0; i < wave.packs.Count; i++)
         {
-            Debug.Log("Spawning pack " + i);
             StartCoroutine(SpawnPack(wave.packs[i]));
             yield return new WaitForSeconds(timeBetweenPacks);
         }
-        Debug.Log("done!");
     }
 
     private IEnumerator SpawnPack(Pack pack)
@@ -76,7 +71,6 @@ public class InsectSpawner : MonoBehaviour
 
         for (int i = 0; i < pack.amount; i++)
         {
-            Debug.Log("Spawning insect " + i);
             GameObject insect = GameObject.Instantiate(prefab, SpawnPosition, Quaternion.identity);
             insect.transform.parent = this.gameObject.transform;
             yield return new WaitForSeconds(pack.timeBetweenSpawn);
