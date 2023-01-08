@@ -20349,7 +20349,7 @@ MonoBehaviour:
   snailPrefab: {fileID: 1902853439879365758, guid: 7d4324671812f3c439612ea0c4ae50c4, type: 3}
   SpawnPosition: {x: -15.5, y: 0.5, z: -1}
   timeBetweenWaves: 10
-  beginWithWave: 0
+  beginWithWave: 24
   WinMessageText: {fileID: 1852714998}
   CurrentWaveText: {fileID: 309014997}
 --- !u!4 &1333557181

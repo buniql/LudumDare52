@@ -195,6 +195,7 @@ public class InsectSpawner : MonoBehaviour
         if (endFight && endFightDone)
         {
             StartCoroutine(WinMessage());
+            endFight = false;
         }
     }
 }
