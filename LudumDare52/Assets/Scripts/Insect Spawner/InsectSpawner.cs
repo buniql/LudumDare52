@@ -5,8 +5,30 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
 
+[System.Serializable]
+public enum InsectEnum
+{
+    Ant, Ladybug, Spider, Bee
+}
+
+[System.Serializable]
+public class Pack
+{
+    public InsectEnum type;
+    public int amount;
+    public float timeBetween;
+}
+
+[System.Serializable]
+public class Wave
+{
+    public List<Pack> packs;
+}
+
 public class InsectSpawner : MonoBehaviour
 {
+    public int test;
+    public List<Wave> waves;
 
     public GameObject InsectPrefab;
     public Vector3 SpawnPosition;

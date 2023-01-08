@@ -6,8 +6,8 @@ using UnityEngine;
 public class PumpkinAttack : MonoBehaviour
 {
     private int attackDamage;
-    private float attackRange;
-    private float movementSpeed;
+    private float attackRange = 2.1f;
+    private float movementSpeed = 5f;
     private Vector3 startPosition;
     private Transform attackTarget;
     private Vector3 targetPosition;
