@@ -9,8 +9,10 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/46da9ce57a644141b0e40d2e12db7dd57400/f7/7f3af9a5/Input.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4746c126b0b54f3b834845974d1a9190159000/3b/151dcc79/Transform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4746c126b0b54f3b834845974d1a9190159000/68/2650fcc8/Quaternion.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/BrokkoliBuff.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/FixShadowRotation.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Attacks/MelonAttack.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Attacks/PaprikaAttack.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Insect Spawner/InsectMovement.cs" root0="FORCE_HIGHLIGHTING" />
@@ -93,7 +95,7 @@
       <workItem from="1673037466191" duration="10329000" />
       <workItem from="1673092655258" duration="7285000" />
       <workItem from="1673125837317" duration="14945000" />
-      <workItem from="1673176678482" duration="6327000" />
+      <workItem from="1673176678482" duration="7506000" />
     </task>
     <servers />
   </component>
