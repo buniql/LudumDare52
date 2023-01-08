@@ -56,6 +56,8 @@ public class InsectSpawner : MonoBehaviour
 
     public float timeBetweenWaves = 15f;
 
+    public int beginWithWave = 0;
+
     private void ReadWaveDataFromCSV()
     {
         var csv = waveData;
@@ -114,7 +116,7 @@ public class InsectSpawner : MonoBehaviour
 
     private IEnumerator SpawnEverything()
     {
-        for (int i = 0; i < waves.Count; i++)
+        for (int i = beginWithWave; i < waves.Count; i++)
         {
             CurrentWaveText.text = "Wave " + (i + 1);
             StartCoroutine(SpawnWave(waves[i]));
