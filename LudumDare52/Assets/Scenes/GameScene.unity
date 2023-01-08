@@ -12806,16 +12806,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e600100adb32ea408017f4c1dc5f931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waveData: {fileID: 4900000, guid: 67925a7cc95c3f54fb5f3d3072e09509, type: 3}
   waves:
-  - packs:
+  - timeBetweenPacks: 2
+    packs:
     - type: 0
       amount: 5
       timeBetweenSpawn: 0.5
-  - packs:
+  - timeBetweenPacks: 2
+    packs:
     - type: 1
       amount: 8
       timeBetweenSpawn: 0.4
-  - packs:
+  - timeBetweenPacks: 2
+    packs:
     - type: 3
       amount: 20
       timeBetweenSpawn: 0.4
@@ -12831,7 +12835,6 @@ MonoBehaviour:
   snailPrefab: {fileID: 1902853439879365758, guid: 7d4324671812f3c439612ea0c4ae50c4, type: 3}
   SpawnPosition: {x: -12.5, y: 0.5, z: -1}
   timeBetweenWaves: 10
-  timeBetweenPacks: 2
   CurrentWaveText: {fileID: 309014997}
 --- !u!4 &1333557181
 Transform:

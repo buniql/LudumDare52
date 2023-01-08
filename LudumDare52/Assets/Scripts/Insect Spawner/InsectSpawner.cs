@@ -2,9 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.Tilemaps;
-using UnityEngine.UI;
+using System.Globalization;
 
 [System.Serializable]
 public enum InsectEnum
