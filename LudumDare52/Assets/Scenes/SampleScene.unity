@@ -1886,7 +1886,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 7.34375
+  orthographic size: 6.3541665
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -10724,12 +10724,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e600100adb32ea408017f4c1dc5f931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  test: 0
-  waves: []
+  waves:
+  - packs:
+    - type: 0
+      amount: 5
+      timeBetweenSpawn: 0.5
+  - packs:
+    - type: 1
+      amount: 8
+      timeBetweenSpawn: 0.4
+  - packs:
+    - type: 2
+      amount: 4
+      timeBetweenSpawn: 0.2
+    - type: 3
+      amount: 4
+      timeBetweenSpawn: 0.2
+  antPrefab: {fileID: 1902853439879365758, guid: a0c0e38113f1dd24289b9549d47d0022, type: 3}
+  ladybugPrefab: {fileID: 1902853439879365758, guid: f4e6be5ff4fd5e04a8255af534c36134, type: 3}
+  spiderPrefab: {fileID: 1902853439879365758, guid: 41ff9814ab9ef6945b7651285e2d80ab, type: 3}
+  beePrefab: {fileID: 1902853439879365758, guid: cf33971a433e55349a36285c9e7fa9ca, type: 3}
   InsectPrefab: {fileID: 1902853439879365758, guid: 22d4e798addabda44a47db52eb54d304, type: 3}
   SpawnPosition: {x: -12.5, y: 0.5, z: -1}
-  SpawnCooldown: 0.3
-  currentInsectAmount: 1
+  timeBetweenWaves: 10
+  timeBetweenPacks: 2
 --- !u!4 &1333557181
 Transform:
   m_ObjectHideFlags: 0
@@ -10791,12 +10809,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlantPrefabs:
-  - {fileID: 6710479305125845059, guid: 5ab42e601a6e15a4486aa587360e6c5b, type: 3}
-  - {fileID: 7370671801404067379, guid: c708b48ded1b1014f878609891df6e3d, type: 3}
-  - {fileID: 6236815037357704303, guid: ceb8050ab7fc7004a849cdd1fdf84941, type: 3}
-  - {fileID: 7462256067682679040, guid: f2d2848be510c3540a4b6353e0ed3539, type: 3}
-  - {fileID: 408095528111007330, guid: fbcc8a8cbee37bd4e96fc3da0b68c1b8, type: 3}
-  - {fileID: 128893055823276502, guid: b7020ce3248d4fe42be8b79ff9584d0e, type: 3}
+  - {fileID: 3843224865611487533, guid: ae6aa7030133fc945b34604dc701fd1e, type: 3}
+  - {fileID: 4283932796970159396, guid: 1656624a30947114a8697851a470d402, type: 3}
+  - {fileID: 8381329438724634438, guid: 3a66e129480cc6e41ab772bc97121c23, type: 3}
+  - {fileID: 7501000656802261638, guid: 71ed878f4513ec34bb83ad0220bcee38, type: 3}
+  - {fileID: 384647465451457228, guid: 41eec9259ed80354e929a4f04c8dc4a9, type: 3}
+  - {fileID: 612861511701909487, guid: 1a3baf8d7c7665741a23134d1094831b, type: 3}
   Tilemap: {fileID: 840806172}
   Camera: {fileID: 519420031}
   MouseOffset: {x: 0.5, y: 0.5}
@@ -10817,32 +10835,26 @@ MonoBehaviour:
     AttackRange: 2
     AttackCooldown: 0.3
     AttackDamage: 1
-    GrowthTime: 5
   - Name: Brokkoli
     AttackRange: 1
     AttackCooldown: 0.2
     AttackDamage: 2
-    GrowthTime: 5
   - Name: Carrot
     AttackRange: 5
     AttackCooldown: 1
     AttackDamage: 4
-    GrowthTime: 5
   - Name: Corn
     AttackRange: 2.5
     AttackCooldown: 0.025
     AttackDamage: 1
-    GrowthTime: 5
   - Name: Melon
     AttackRange: 2
     AttackCooldown: 0
     AttackDamage: 100000
-    GrowthTime: 5
   - Name: Pumpkin
     AttackRange: 2
     AttackCooldown: 5
     AttackDamage: 8
-    GrowthTime: 5
 --- !u!1 &1997063097
 GameObject:
   m_ObjectHideFlags: 0
