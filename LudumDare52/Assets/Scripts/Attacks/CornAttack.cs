@@ -4,14 +4,22 @@ using UnityEngine;
 
 public class CornAttack : MonoBehaviour
 {
-    public float AttackRange;
-
-    public float AttackCooldown;
+    private float attackRange;
+    private float attackCooldown;
+    private int attackDamage;
 
     public GameObject WeaponPrefab;
 
     private Transform attackTarget;
     private bool currentlyAttacking = false;
+
+    private void Start()
+    {
+        PlantStat stats = GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetCornStats();
+        attackRange = stats.AttackRange;
+        attackCooldown = stats.AttackCooldown;
+        attackDamage = stats.AttackDamage;
+    }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -31,7 +39,7 @@ public class CornAttack : MonoBehaviour
         foreach (Transform child in insectSpawner.transform)
         {
             float distance = Vector3.Distance(transform.position, child.position);
-            if (distance < minDistance && distance <= AttackRange)
+            if (distance < minDistance && distance <= attackRange)
             {
                 result = child;
                 minDistance = distance;
@@ -53,13 +61,12 @@ public class CornAttack : MonoBehaviour
             float angle = Mathf.Atan2(targetPosition.y, targetPosition.x) * Mathf.Rad2Deg;
                 
             GameObject projectile = GameObject.Instantiate(WeaponPrefab, new Vector3(transform.position.x, transform.position.y, -1), Quaternion.Euler(new Vector3(0,0, angle - 90f)));
-            PlantStat stats = GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetCornStats();
-            projectile.GetComponent<ProjectileMovement>().AttackDamage = stats.AttackDamage;
+            projectile.GetComponent<ProjectileMovement>().AttackDamage = attackDamage;
 
             GameObject.Find("Sound").GetComponent<Sound>().PlaySound(2);  
             GameObject.Instantiate(WeaponPrefab, new Vector3(transform.position.x, transform.position.y, -1), Quaternion.Euler(new Vector3(0,0, angle - 90f)));
         
-            yield return new WaitForSeconds(AttackCooldown);
+            yield return new WaitForSeconds(attackCooldown);
             currentlyAttacking = false;
         }
     }

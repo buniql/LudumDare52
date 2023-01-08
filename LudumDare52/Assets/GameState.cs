@@ -28,7 +28,7 @@ public class GameState : MonoBehaviour
     void Update()
     {
         Health = Mathf.Clamp(Health, 0, 100);
-        Coins = Mathf.Clamp(Coins, 0, 1000);
+        Coins = Mathf.Clamp(Coins, 0, 1000000);
         HealthText.text = Health.ToString();
         CoinsText.text = Coins.ToString();
 

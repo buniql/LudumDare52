@@ -93,8 +93,7 @@ public class MelonAttack : MonoBehaviour
         {
             // get insect HP script and apply damage
 
-            // peak game jam coding, love magic numbers
-            other.GetComponent<InsectHealth>().TakeDamage(1000000);
+            other.GetComponent<InsectHealth>().TakeDamage(250);
         }
     }
 }
