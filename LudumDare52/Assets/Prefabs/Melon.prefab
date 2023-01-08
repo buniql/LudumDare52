@@ -150,6 +150,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8406203395550888490}
   - component: {fileID: 6223965658272754788}
+  - component: {fileID: 392264430523858148}
   m_Layer: 0
   m_Name: MelonShadow
   m_TagString: Untagged
@@ -224,3 +225,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &392264430523858148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806475249174786244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25db25bd9d093f449b51215b4004d1d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
