@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class BrokkoliBuff : MonoBehaviour
     private int damageBuff;
     private float attackSpeedBuff;
     private List<GameObject> neighboringPlants;
+    private int plantCount;
 
     private PlantStats plantStats;
 
@@ -17,10 +19,24 @@ public class BrokkoliBuff : MonoBehaviour
         buffDistance = stats.AttackRange;
         attackSpeedBuff = stats.AttackCooldown;
         damageBuff = stats.AttackDamage;
+
+        GameObject plantSpawner = GameObject.Find("PlantSpawner");
+        plantCount = plantSpawner.transform.childCount;
+        BuffPlants();
     }
     
     // Update is called once per frame
     void Update()
+    {
+        GameObject plantSpawner = GameObject.Find("PlantSpawner");
+        if (plantCount != plantSpawner.transform.childCount)
+        {
+            UnBuffPlants();
+            BuffPlants();
+        }
+    }
+
+    private void BuffPlants()
     {
         GameObject plantSpawner = GameObject.Find("PlantSpawner");
         for (int i = 0; i < plantSpawner.transform.childCount; i++)
@@ -31,28 +47,83 @@ public class BrokkoliBuff : MonoBehaviour
             }
         }
     }
+    
+    private void UnBuffPlants()
+    {
+        GameObject plantSpawner = GameObject.Find("PlantSpawner");
+        for (int i = 0; i < plantSpawner.transform.childCount; i++)
+        {
+            if (Vector3.Distance(plantSpawner.transform.GetChild(i).position, transform.position) <= buffDistance)
+            {
+                UnBuffPlant(plantSpawner.transform.GetChild(i).gameObject);
+            }
+        }
+    }
+
+    private void OnDestroy()
+    {
+        UnBuffPlants();
+    }
 
     private void BuffPlant(GameObject obj)
     {
         if (obj.name.Contains("Bell Pepper"))
         {
             PlantAttackStats stats = GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetBellPepperStats();
-            obj.GetComponent<PaprikaAttack>().SetAttackCooldown(stats.AttackCooldown - attackSpeedBuff);
+            obj.GetComponent<PaprikaAttack>().SetAttackCooldown(obj.GetComponent<PaprikaAttack>().GetAttackCooldown() - attackSpeedBuff);
         }
+        /**
         if (obj.name.Contains("Brokkoli"))
         {
             PlantAttackStats stats = GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetBrokkoliStats();
-            buffDistance = stats.AttackRange;
+            obj.GetComponent<BrokkoliBuff>().SetBuffDistance(obj.GetComponent<BrokkoliBuff>().GetBuffDistance() + stats.AttackRange);
         }
+        */
         if (obj.name.Contains("Carrot"))
         {
-            PlantAttackStats stats = GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetBellPepperStats();
-            obj.GetComponent<CarrotAttack>().SetAttackCooldown(stats.AttackCooldown - attackSpeedBuff);
+            PlantAttackStats stats = GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetCarrotStats();
+            obj.GetComponent<CarrotAttack>().SetAttackCooldown(obj.GetComponent<CarrotAttack>().GetAttackCooldown() - attackSpeedBuff);
         }
         if (obj.name.Contains("Pumpkin"))
         {
-            PlantAttackStats stats = GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetBellPepperStats();
-            obj.GetComponent<PumpkinAttack>().SetAttackDamage(stats.AttackDamage + damageBuff);
+            PlantAttackStats stats = GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetPumpkinStats();
+            obj.GetComponent<PumpkinAttack>().SetAttackDamage(obj.GetComponent<PumpkinAttack>().GetAttackDamage() + damageBuff);
         }
+    }
+    
+    private void UnBuffPlant(GameObject obj)
+    {
+        if (obj.name.Contains("Bell Pepper"))
+        {
+            PlantAttackStats stats = GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetBellPepperStats();
+            obj.GetComponent<PaprikaAttack>().SetAttackCooldown(obj.GetComponent<PaprikaAttack>().GetAttackCooldown() + attackSpeedBuff);
+        }
+        /**
+        if (obj.name.Contains("Brokkoli"))
+        {
+            PlantAttackStats stats = GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetBrokkoliStats();
+            obj.GetComponent<BrokkoliBuff>().SetBuffDistance(obj.GetComponent<BrokkoliBuff>().GetBuffDistance() - stats.AttackRange);
+        }
+        */
+        if (obj.name.Contains("Carrot"))
+        {
+            PlantAttackStats stats = GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetCarrotStats();
+            obj.GetComponent<CarrotAttack>().SetAttackCooldown(obj.GetComponent<CarrotAttack>().GetAttackCooldown() + attackSpeedBuff);
+        }
+        if (obj.name.Contains("Pumpkin"))
+        {
+            PlantAttackStats stats = GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetPumpkinStats();
+            obj.GetComponent<PumpkinAttack>().SetAttackDamage(obj.GetComponent<PumpkinAttack>().GetAttackDamage() - damageBuff);
+        }
+    }
+
+    public void SetBuffDistance(float distance)
+    {
+        this.buffDistance = distance;
+    }
+    
+    public float GetBuffDistance()
+    {
+        return this.buffDistance;
     }
 }

@@ -52,6 +52,23 @@ public class PlantPlacement : MonoBehaviour
                 currentPlant.transform.parent = this.gameObject.transform;
             }
         }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            GameObject plantSpawner = GameObject.Find("PlantSpawner");
+            for (int i = 0; i < plantSpawner.transform.childCount; i++)
+            {
+                Vector3 worldPosition = Camera.ScreenToWorldPoint(Input.mousePosition);
+            
+                Vector3 positionToDestory = new Vector3(Mathf.Ceil(worldPosition.x) - MouseOffset.x,
+                    Mathf.Ceil(worldPosition.y) - MouseOffset.y, -1);
+                
+                if (Vector3.Distance(plantSpawner.transform.GetChild(i).position, positionToDestory) <= .6f)
+                {
+                    Destroy(plantSpawner.transform.GetChild(i).gameObject);
+                }
+            }
+        }
     }
 
     private void getCurrentPlantKey()

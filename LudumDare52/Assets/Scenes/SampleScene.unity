@@ -10817,7 +10817,7 @@ MonoBehaviour:
     AttackDamage: 1
   - Name: Brokkoli
     AttackRange: 1
-    AttackCooldown: 0.05
+    AttackCooldown: 0.2
     AttackDamage: 2
   - Name: Carrot
     AttackRange: 5
