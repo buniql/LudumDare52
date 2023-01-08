@@ -100,4 +100,5 @@ public struct PlantAttackStats
     public float AttackRange;
     public float AttackCooldown;
     public int AttackDamage;
+    public float GrowthTime;
 }
