@@ -16,7 +16,7 @@ public class Pack
 {
     public InsectEnum type;
     public int amount;
-    public float timeBetween;
+    public float timeBetweenSpawn;
 }
 
 [System.Serializable]
@@ -27,14 +27,84 @@ public class Wave
 
 public class InsectSpawner : MonoBehaviour
 {
-    public int test;
     public List<Wave> waves;
+
+    public GameObject antPrefab;
+    public GameObject ladybugPrefab;
+    public GameObject spiderPrefab;
+    public GameObject beePrefab;
 
     public GameObject InsectPrefab;
     public Vector3 SpawnPosition;
-    public float SpawnCooldown;
-    private float nextSpawnTime;
+    //public float SpawnCooldown;
+    //private float nextSpawnTime;
 
+    public float timeBetweenWaves = 15f;
+    public float timeBetweenPacks = 2f;
+
+    private void Start()
+    {
+        Debug.Log("Start spawning");
+        StartCoroutine(SpawnEverything());
+    }
+
+    private IEnumerator SpawnEverything()
+    {
+        for (int i = 0; i < waves.Count; i++)
+        {
+            Debug.Log("Spawning wave " + i);
+            StartCoroutine(SpawnWave(waves[i]));
+            yield return new WaitForSeconds(timeBetweenWaves);
+        }
+    }
+
+    private IEnumerator SpawnWave(Wave wave)
+    {
+        Debug.Log("i spawn my wave content now!");
+        for (int i = 0; i < wave.packs.Count; i++)
+        {
+            Debug.Log("Spawning pack " + i);
+            StartCoroutine(SpawnPack(wave.packs[i]));
+            yield return new WaitForSeconds(timeBetweenPacks);
+        }
+        Debug.Log("done!");
+    }
+
+    private IEnumerator SpawnPack(Pack pack)
+    {
+        GameObject prefab = GetPrefab(pack.type);
+
+        for (int i = 0; i < pack.amount; i++)
+        {
+            Debug.Log("Spawning insect " + i);
+            GameObject insect = GameObject.Instantiate(prefab, SpawnPosition, Quaternion.identity);
+            insect.transform.parent = this.gameObject.transform;
+            yield return new WaitForSeconds(pack.timeBetweenSpawn);
+        }
+    }
+
+    private GameObject GetPrefab(InsectEnum type)
+    {
+        switch (type)
+        {
+            case InsectEnum.Ant:
+                return antPrefab;
+
+            case InsectEnum.Ladybug:
+                return ladybugPrefab;
+
+            case InsectEnum.Spider:
+                return spiderPrefab;
+
+            case InsectEnum.Bee:
+                return beePrefab;
+        }
+
+        // failsafe
+        return antPrefab;
+    }
+
+    /*
     public int currentInsectAmount = 1;
     private void Update()
     {
@@ -53,5 +123,5 @@ public class InsectSpawner : MonoBehaviour
             insect.transform.parent = this.gameObject.transform;
             yield return new WaitForSeconds(SpawnCooldown);
         }
-    }
+    }*/
 }
