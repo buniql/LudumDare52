@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 
 [System.Serializable]
 public enum InsectEnum
@@ -42,6 +44,8 @@ public class InsectSpawner : MonoBehaviour
     public float timeBetweenWaves = 15f;
     public float timeBetweenPacks = 2f;
 
+    public TMP_Text CurrentWaveText;
+
     private void Start()
     {
         StartCoroutine(SpawnEverything());
@@ -51,6 +55,7 @@ public class InsectSpawner : MonoBehaviour
     {
         for (int i = 0; i < waves.Count; i++)
         {
+            CurrentWaveText.text = "Wave " + (i + 1);
             StartCoroutine(SpawnWave(waves[i]));
             yield return new WaitForSeconds(timeBetweenWaves);
         }

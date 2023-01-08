@@ -19,7 +19,7 @@ public class PumpkinAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlantAttackStats stats = GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetPumpkinStats();
+        PlantStat stats = GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetPumpkinStats();
         startPosition = transform.position;
 
         jumpTransform = transform.GetChild(0);

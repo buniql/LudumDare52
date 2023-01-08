@@ -12,6 +12,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4746c126b0b54f3b834845974d1a9190159000/3b/151dcc79/Transform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4746c126b0b54f3b834845974d1a9190159000/68/2650fcc8/Quaternion.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/BrokkoliBuff.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/CoinsEarned.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/FixShadowRotation.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameUI.cs" root0="FORCE_HIGHLIGHTING" />
@@ -97,7 +98,7 @@
       <workItem from="1673037466191" duration="10329000" />
       <workItem from="1673092655258" duration="7285000" />
       <workItem from="1673125837317" duration="14945000" />
-      <workItem from="1673176678482" duration="11286000" />
+      <workItem from="1673176678482" duration="16822000" />
     </task>
     <servers />
   </component>

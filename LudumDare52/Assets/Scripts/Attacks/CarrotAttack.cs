@@ -15,7 +15,7 @@ public class CarrotAttack : MonoBehaviour
 
     private void Start()
     {
-        PlantAttackStats stats = GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetCarrotStats();
+        PlantStat stats = GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetCarrotStats();
         attackRange = stats.AttackRange;
         attackCooldown = stats.AttackCooldown;
     }

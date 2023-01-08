@@ -17,7 +17,7 @@ public class MelonAttack : MonoBehaviour
 
     private void Start()
     {
-        PlantAttackStats stats = GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetMelonStats();
+        PlantStat stats = GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetMelonStats();
         this.attackRange = stats.AttackRange;
     }
 

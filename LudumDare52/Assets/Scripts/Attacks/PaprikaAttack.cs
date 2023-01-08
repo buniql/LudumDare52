@@ -17,7 +17,7 @@ public class PaprikaAttack : MonoBehaviour
 
     private void Start()
     {
-        PlantAttackStats stats = GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetBellPepperStats();
+        PlantStat stats = GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetBellPepperStats();
         attackRange = stats.AttackRange;
         attackCooldown = stats.AttackCooldown;
     }

@@ -9,7 +9,7 @@ public class GameState : MonoBehaviour
 {
     public int Health = 100;
 
-    public int Coins = 5;
+    public int Coins;
 
     public TMP_Text HealthText;
 
@@ -18,7 +18,7 @@ public class GameState : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Coins = 5;
     }
 
     // Update is called once per frame

@@ -1,14 +1,29 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlantStats : MonoBehaviour
 {
-    public List<PlantAttackStats> Stats;
+    public List<PlantStat> Stats;
 
-    public PlantAttackStats GetBellPepperStats()
+    public List<TMP_Text> CostTexts;
+
+    private void Awake()
     {
-        PlantAttackStats stats = new PlantAttackStats();
+        CostTexts[0].text = GetCarrotStats().BuyPrice.ToString();
+        CostTexts[1].text = GetBellPepperStats().BuyPrice.ToString();
+        CostTexts[2].text = GetCornStats().BuyPrice.ToString();
+        CostTexts[3].text = GetPumpkinStats().BuyPrice.ToString();
+        CostTexts[4].text = GetBrokkoliStats().BuyPrice.ToString();
+        CostTexts[5].text = GetMelonStats().BuyPrice.ToString();
+    }
+
+    public PlantStat GetBellPepperStats()
+    {
+        PlantStat stats = new PlantStat();
         foreach (var stat in Stats)
         {
             if (stat.Name.Contains("Bell Pepper"))
@@ -20,9 +35,9 @@ public class PlantStats : MonoBehaviour
         return stats;
     }
     
-    public PlantAttackStats GetBrokkoliStats()
+    public PlantStat GetBrokkoliStats()
     {
-        PlantAttackStats stats = new PlantAttackStats();
+        PlantStat stats = new PlantStat();
         foreach (var stat in Stats)
         {
             if (stat.Name.Contains("Brokkoli"))
@@ -34,9 +49,9 @@ public class PlantStats : MonoBehaviour
         return stats;
     }
     
-    public PlantAttackStats GetCarrotStats()
+    public PlantStat GetCarrotStats()
     {
-        PlantAttackStats stats = new PlantAttackStats();
+        PlantStat stats = new PlantStat();
         foreach (var stat in Stats)
         {
             if (stat.Name.Contains("Carrot"))
@@ -48,9 +63,9 @@ public class PlantStats : MonoBehaviour
         return stats;
     }
     
-    public PlantAttackStats GetCornStats()
+    public PlantStat GetCornStats()
     {
-        PlantAttackStats stats = new PlantAttackStats();
+        PlantStat stats = new PlantStat();
         foreach (var stat in Stats)
         {
             if (stat.Name.Contains("Corn"))
@@ -62,9 +77,9 @@ public class PlantStats : MonoBehaviour
         return stats;
     }
     
-    public PlantAttackStats GetMelonStats()
+    public PlantStat GetMelonStats()
     {
-        PlantAttackStats stats = new PlantAttackStats();
+        PlantStat stats = new PlantStat();
         foreach (var stat in Stats)
         {
             if (stat.Name.Contains("Melon"))
@@ -76,9 +91,9 @@ public class PlantStats : MonoBehaviour
         return stats;
     }
     
-    public PlantAttackStats GetPumpkinStats()
+    public PlantStat GetPumpkinStats()
     {
-        PlantAttackStats stats = new PlantAttackStats();
+        PlantStat stats = new PlantStat();
         foreach (var stat in Stats)
         {
             if (stat.Name.Contains("Pumpkin"))
@@ -94,11 +109,13 @@ public class PlantStats : MonoBehaviour
 }
 
 [System.Serializable]
-public struct PlantAttackStats
+public struct PlantStat
 {
     public string Name;
     public float AttackRange;
     public float AttackCooldown;
     public int AttackDamage;
     public float GrowthTime;
+    public int BuyPrice;
+    public int SellPrice;
 }
