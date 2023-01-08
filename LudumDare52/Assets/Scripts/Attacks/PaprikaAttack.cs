@@ -5,8 +5,8 @@ using UnityEngine;
 public class PaprikaAttack : MonoBehaviour
 {
     private float attackRange;
-
     private float attackCooldown;
+    private int attackDamage;
 
     public GameObject WeaponPrefab;
 
@@ -20,6 +20,7 @@ public class PaprikaAttack : MonoBehaviour
         PlantStat stats = GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetBellPepperStats();
         attackRange = stats.AttackRange;
         attackCooldown = stats.AttackCooldown;
+        attackDamage = stats.AttackDamage;
     }
     
     // Update is called once per frame
@@ -64,7 +65,8 @@ public class PaprikaAttack : MonoBehaviour
                     attackTarget.position.y - transform.position.y);
                 float angle = Mathf.Atan2(targetPosition.y, targetPosition.x) * Mathf.Rad2Deg;
                 angle = 90f + i * (360f / ProjectileAmount);
-                GameObject.Instantiate(WeaponPrefab, new Vector3(transform.position.x, transform.position.y, -1), Quaternion.Euler(new Vector3(0,0, angle)));
+                GameObject projectile = GameObject.Instantiate(WeaponPrefab, new Vector3(transform.position.x, transform.position.y, -1), Quaternion.Euler(new Vector3(0,0, angle)));
+                projectile.GetComponent<ProjectileMovement>().AttackDamage = attackDamage;
             }
 
             yield return new WaitForSeconds(attackCooldown);

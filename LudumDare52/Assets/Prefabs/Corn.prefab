@@ -97,6 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a9f83d882a9836499ed6588c2952092, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackRange: 2.5
-  AttackCooldown: 0.025
+  AttackRange: 1.8
+  AttackCooldown: 0.1
   WeaponPrefab: {fileID: 2457534939310086965, guid: c6dafc6e50ce67641bed5a1db00899c5, type: 3}

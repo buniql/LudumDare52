@@ -7,9 +7,11 @@ using UnityEngine.SceneManagement;
 
 public class GameState : MonoBehaviour
 {
-    public int Health = 100;
+    public int StartHealth = 100;
+    public int StartCoins = 5;
 
-    public int Coins;
+    private int Health;
+    private int Coins;
 
     public TMP_Text HealthText;
 
@@ -18,14 +20,15 @@ public class GameState : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Coins = 5;
+        Health = StartHealth;
+        Coins = StartCoins;
     }
 
     // Update is called once per frame
     void Update()
     {
         Health = Mathf.Clamp(Health, 0, 100);
-        Coins = Mathf.Clamp(Coins, 0, 1000);
+        Coins = Mathf.Clamp(Coins, 0, 1000000);
         HealthText.text = Health.ToString();
         CoinsText.text = Coins.ToString();
 

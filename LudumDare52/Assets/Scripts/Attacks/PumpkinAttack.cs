@@ -20,8 +20,9 @@ public class PumpkinAttack : MonoBehaviour
     void Start()
     {
         PlantStat stats = GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetPumpkinStats();
+        attackRange = stats.AttackRange;
+        attackDamage = stats.AttackDamage;
         startPosition = transform.position;
-
         jumpTransform = transform.GetChild(0);
     }
 
