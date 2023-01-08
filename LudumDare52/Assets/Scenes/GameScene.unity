@@ -2961,7 +2961,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 9.791667
+  orthographic size: 9.53125
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -12835,6 +12835,7 @@ MonoBehaviour:
   snailPrefab: {fileID: 1902853439879365758, guid: 7d4324671812f3c439612ea0c4ae50c4, type: 3}
   SpawnPosition: {x: -12.5, y: 0.5, z: -1}
   timeBetweenWaves: 10
+  beginWithWave: 24
   CurrentWaveText: {fileID: 309014997}
 --- !u!4 &1333557181
 Transform:
@@ -13682,45 +13683,45 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Stats:
   - Name: Carrot
-    AttackRange: 5
+    AttackRange: 3.5
     AttackCooldown: 1
     AttackDamage: 4
     GrowthTime: 5
-    BuyPrice: 1
-    SellPrice: 2
+    BuyPrice: 3
+    SellPrice: 4
   - Name: Bell Pepper
-    AttackRange: 2
-    AttackCooldown: 0.3
+    AttackRange: 2.1
+    AttackCooldown: 0.4
     AttackDamage: 1
     GrowthTime: 5
     BuyPrice: 5
     SellPrice: 7
   - Name: Corn
     AttackRange: 2.5
-    AttackCooldown: 0.025
+    AttackCooldown: 0.1
     AttackDamage: 1
     GrowthTime: 5
-    BuyPrice: 5
-    SellPrice: 7
+    BuyPrice: 10
+    SellPrice: 13
   - Name: Pumpkin
-    AttackRange: 2
+    AttackRange: 2.1
     AttackCooldown: 5
     AttackDamage: 8
     GrowthTime: 5
-    BuyPrice: 5
-    SellPrice: 7
-  - Name: Brokkoli
-    AttackRange: 1
+    BuyPrice: 7
+    SellPrice: 10
+  - Name: Broccoli
+    AttackRange: 1.1
     AttackCooldown: 0.2
     AttackDamage: 2
     GrowthTime: 5
-    BuyPrice: 3
-    SellPrice: 5
+    BuyPrice: 6
+    SellPrice: 8
   - Name: Melon
-    AttackRange: 2
+    AttackRange: 1.5
     AttackCooldown: 0
-    AttackDamage: 100000
-    GrowthTime: 5
+    AttackDamage: 250
+    GrowthTime: 20
     BuyPrice: 30
     SellPrice: 0
   CostTexts:

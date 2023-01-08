@@ -52,8 +52,10 @@ public class CornAttack : MonoBehaviour
                 attackTarget.position.y - transform.position.y);
             float angle = Mathf.Atan2(targetPosition.y, targetPosition.x) * Mathf.Rad2Deg;
                 
-            GameObject.Instantiate(WeaponPrefab, new Vector3(transform.position.x, transform.position.y, -1), Quaternion.Euler(new Vector3(0,0, angle - 90f)));
-        
+            GameObject projectile = GameObject.Instantiate(WeaponPrefab, new Vector3(transform.position.x, transform.position.y, -1), Quaternion.Euler(new Vector3(0,0, angle - 90f)));
+            PlantStat stats = GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetCornStats();
+            projectile.GetComponent<ProjectileMovement>().AttackDamage = stats.AttackDamage;
+
             yield return new WaitForSeconds(AttackCooldown);
             currentlyAttacking = false;
         }
