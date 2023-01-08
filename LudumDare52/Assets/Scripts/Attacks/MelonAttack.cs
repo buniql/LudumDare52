@@ -14,6 +14,7 @@ public class MelonAttack : MonoBehaviour
     private bool activated = false;
     private Transform attackTarget;
     private Vector3 direction;
+    private bool soundPlayed = false;
 
     private void Start()
     {
@@ -35,6 +36,7 @@ public class MelonAttack : MonoBehaviour
             {
                 transform.Rotate(Vector3.forward * (RotationSpeed * Time.fixedDeltaTime));
             }
+            PlaySound();
             StartCoroutine(DestoryInTime());
         }
         else
@@ -48,6 +50,15 @@ public class MelonAttack : MonoBehaviour
 
             direction = new Vector3(attackTarget.position.x - transform.position.x,
                 attackTarget.position.y - transform.position.y, 0).normalized;
+        }
+    }
+
+    private void PlaySound()
+    {
+        if (!soundPlayed)
+        {
+            GameObject.Find("Sound").GetComponent<Sound>().PlaySound(5);
+            soundPlayed = true;
         }
     }
     

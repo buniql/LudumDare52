@@ -58,7 +58,7 @@ public class CarrotAttack : MonoBehaviour
             Vector2 targetPosition = new Vector2(attackTarget.position.x - transform.position.x,
                 attackTarget.position.y - transform.position.y);
             float angle = Mathf.Atan2(targetPosition.y, targetPosition.x) * Mathf.Rad2Deg;
-                
+            GameObject.Find("Sound").GetComponent<Sound>().PlaySound(0);    
             GameObject.Instantiate(WeaponPrefab, new Vector3(transform.position.x, transform.position.y, -1), Quaternion.Euler(new Vector3(0,0, angle - 90f)));
         
             yield return new WaitForSeconds(attackCooldown);

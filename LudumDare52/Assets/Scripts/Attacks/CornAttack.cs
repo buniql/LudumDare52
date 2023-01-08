@@ -56,6 +56,9 @@ public class CornAttack : MonoBehaviour
             PlantStat stats = GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetCornStats();
             projectile.GetComponent<ProjectileMovement>().AttackDamage = stats.AttackDamage;
 
+            GameObject.Find("Sound").GetComponent<Sound>().PlaySound(2);  
+            GameObject.Instantiate(WeaponPrefab, new Vector3(transform.position.x, transform.position.y, -1), Quaternion.Euler(new Vector3(0,0, angle - 90f)));
+        
             yield return new WaitForSeconds(AttackCooldown);
             currentlyAttacking = false;
         }

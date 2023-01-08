@@ -92,6 +92,7 @@ public class PumpkinAttack : MonoBehaviour
         {
             if (dealDamage)
             {
+                GameObject.Find("Sound").GetComponent<Sound>().PlaySound(3);  
                 // get insect HP script and apply damage
                 other.GetComponent<InsectHealth>().TakeDamage(attackDamage);
             }
