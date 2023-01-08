@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PumpkinAttack : MonoBehaviour
 {
+    public int AttackDamage;
     public float AttackRange;
     public float MovementSpeed;
     private Vector3 startPosition;
@@ -12,7 +13,8 @@ public class PumpkinAttack : MonoBehaviour
     private Vector3 targetPosition;
     private bool activated = false;
     private bool homing = false;
-    
+    private bool dealDamage = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,8 @@ public class PumpkinAttack : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        dealDamage = false;
+
         if (activated)
         {
             if (!homing)
@@ -31,6 +35,8 @@ public class PumpkinAttack : MonoBehaviour
                         .normalized * (MovementSpeed * Time.fixedDeltaTime);
                 if (Vector3.Distance(transform.position,startPosition) >= Vector3.Distance(targetPosition, startPosition))
                 {
+                    dealDamage = true;
+
                     Debug.Log("I wanna go home now");
                     homing = true;
                 }
@@ -40,7 +46,7 @@ public class PumpkinAttack : MonoBehaviour
                 transform.position +=
                     new Vector3(startPosition.x - transform.position.x, startPosition.y - transform.position.y, 0)
                         .normalized * (MovementSpeed * Time.fixedDeltaTime);
-                if (Vector3.Distance(targetPosition, transform.position) >= Vector3.Distance(targetPosition, startPosition))
+                if (Vector3.Distance(targetPosition, transform.position) >= Vector3.Distance(targetPosition, startPosition) * 0.999)
                 {
                     Debug.Log("I arrived at home");
                     transform.position = startPosition;
@@ -73,5 +79,22 @@ public class PumpkinAttack : MonoBehaviour
             }
         }
         return result;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Insect")
+        {
+            if (dealDamage)
+            {
+                // get insect HP script and apply damage
+                other.GetComponent<InsectHealth>().TakeDamage(AttackDamage);
+            }
+        }
+    }
+
+    void OnTriggerStay2D(Collider2D other)
+    {
+        OnTriggerEnter2D(other);
     }
 }

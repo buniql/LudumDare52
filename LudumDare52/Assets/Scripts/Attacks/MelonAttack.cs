@@ -68,4 +68,15 @@ public class MelonAttack : MonoBehaviour
         yield return new WaitForSeconds(Livetime);
         GameObject.Destroy(this.gameObject);
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Insect")
+        {
+            // get insect HP script and apply damage
+
+            // peak game jam coding, love magic numbers
+            other.GetComponent<InsectHealth>().TakeDamage(1000000);
+        }
+    }
 }
