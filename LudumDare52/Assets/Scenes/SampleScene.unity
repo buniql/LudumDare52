@@ -2105,7 +2105,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c9f9c3f909c7b1d429d8695c09d44f7a, type: 2}
+  - {fileID: 2100000, guid: 1a39cdab9f26e234eb02d2e6be317162, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10794,6 +10794,7 @@ MonoBehaviour:
   - {fileID: 8381329438724634438, guid: 3a66e129480cc6e41ab772bc97121c23, type: 3}
   - {fileID: 6360163734956182820, guid: 26fb080bac4ac554c94f6c8775847241, type: 3}
   - {fileID: 384647465451457228, guid: 41eec9259ed80354e929a4f04c8dc4a9, type: 3}
+  - {fileID: 612861511701909487, guid: 1a3baf8d7c7665741a23134d1094831b, type: 3}
   Tilemap: {fileID: 840806172}
   Camera: {fileID: 519420031}
   MouseOffset: {x: 0.5, y: 0.5}
