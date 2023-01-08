@@ -6,7 +6,7 @@ public class CarrotAttack : MonoBehaviour
 {
     private float attackRange;
 
-    private float attackCooldown;
+    public float attackCooldown;
 
     public GameObject WeaponPrefab;
 
