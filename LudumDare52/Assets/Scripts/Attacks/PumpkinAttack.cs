@@ -14,12 +14,15 @@ public class PumpkinAttack : MonoBehaviour
     private bool activated = false;
     private bool homing = false;
     private bool dealDamage = false;
+    private Transform jumpTransform;
 
     // Start is called before the first frame update
     void Start()
     {
         PlantAttackStats stats = GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetPumpkinStats();
         startPosition = transform.position;
+
+        jumpTransform = transform.GetChild(0);
     }
 
     // Update is called once per frame
@@ -33,8 +36,8 @@ public class PumpkinAttack : MonoBehaviour
             {
                 transform.position +=
                     new Vector3(targetPosition.x - transform.position.x, targetPosition.y - transform.position.y, 0)
-                        .normalized * (movementSpeed * Time.fixedDeltaTime);
-                if (Vector3.Distance(transform.position,startPosition) >= Vector3.Distance(targetPosition, startPosition))
+                        .normalized * (MovementSpeed * Time.fixedDeltaTime);
+                if (Vector3.Distance(transform.position,startPosition) >= Vector3.Distance(targetPosition, startPosition) - .1f)
                 {
                     dealDamage = true;
                     homing = true;
@@ -59,6 +62,11 @@ public class PumpkinAttack : MonoBehaviour
             activated = true;
             targetPosition = attackTarget.position;
         }
+
+        jumpTransform.position = transform.position;
+        float onRoute = Mathf.Min(Vector3.Distance(targetPosition, transform.position), Vector3.Distance(startPosition, transform.position));
+        float height = onRoute * 0.5f;
+        jumpTransform.Translate(new Vector3(0, height, 0));
     }
     
     private Transform FindNearestTarget()
