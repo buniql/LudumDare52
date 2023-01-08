@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class PumpkinAttack : MonoBehaviour
 {
-    public int AttackDamage;
-    public float AttackRange;
-    public float MovementSpeed;
+    private int attackDamage;
+    private float attackRange;
+    private float movementSpeed;
     private Vector3 startPosition;
     private Transform attackTarget;
     private Vector3 targetPosition;
@@ -33,7 +33,7 @@ public class PumpkinAttack : MonoBehaviour
             {
                 transform.position +=
                     new Vector3(targetPosition.x - transform.position.x, targetPosition.y - transform.position.y, 0)
-                        .normalized * (MovementSpeed * Time.fixedDeltaTime);
+                        .normalized * (movementSpeed * Time.fixedDeltaTime);
                 if (Vector3.Distance(transform.position,startPosition) >= Vector3.Distance(targetPosition, startPosition))
                 {
                     dealDamage = true;
@@ -44,7 +44,7 @@ public class PumpkinAttack : MonoBehaviour
             {
                 transform.position +=
                     new Vector3(startPosition.x - transform.position.x, startPosition.y - transform.position.y, 0)
-                        .normalized * (MovementSpeed * Time.fixedDeltaTime);
+                        .normalized * (movementSpeed * Time.fixedDeltaTime);
                 if (Vector3.Distance(targetPosition, transform.position) >= Vector3.Distance(targetPosition, startPosition) - .2f)
                 {
                     transform.position = startPosition;
@@ -69,7 +69,7 @@ public class PumpkinAttack : MonoBehaviour
         foreach (Transform child in insectSpawner.transform)
         {
             float distance = Vector3.Distance(transform.position, child.position);
-            if (distance < minDistance && distance <= AttackRange)
+            if (distance < minDistance && distance <= attackRange)
             {
                 result = child;
                 minDistance = distance;
@@ -85,7 +85,7 @@ public class PumpkinAttack : MonoBehaviour
             if (dealDamage)
             {
                 // get insect HP script and apply damage
-                other.GetComponent<InsectHealth>().TakeDamage(AttackDamage);
+                other.GetComponent<InsectHealth>().TakeDamage(attackDamage);
             }
         }
     }
@@ -93,5 +93,15 @@ public class PumpkinAttack : MonoBehaviour
     void OnTriggerStay2D(Collider2D other)
     {
         OnTriggerEnter2D(other);
+    }
+
+    public void SetAttackDamage(int damage)
+    {
+        this.attackDamage = damage;
+    }
+
+    public int GetAttackDamage()
+    {
+        return this.attackDamage;
     }
 }

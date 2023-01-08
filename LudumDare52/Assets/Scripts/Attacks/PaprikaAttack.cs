@@ -70,4 +70,14 @@ public class PaprikaAttack : MonoBehaviour
             currentlyAttacking = false;
         }
     }
+
+    public void SetAttackCooldown(float cooldown)
+    {
+        this.attackCooldown = cooldown;
+    }
+
+    public float GetAttackCooldown()
+    {
+        return this.attackCooldown;
+    }
 }

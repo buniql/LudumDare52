@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 
 public class MelonAttack : MonoBehaviour
 {
-    public float AttackRange;
+    private float attackRange;
     public float MovementSpeed;
     public float RotationSpeed;
     public float Livetime;
@@ -18,6 +18,7 @@ public class MelonAttack : MonoBehaviour
     private void Start()
     {
         PlantAttackStats stats = GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetMelonStats();
+        this.attackRange = stats.AttackRange;
     }
 
     // Update is called once per frame
@@ -58,7 +59,7 @@ public class MelonAttack : MonoBehaviour
         foreach (Transform child in insectSpawner.transform)
         {
             float distance = Vector3.Distance(transform.position, child.position);
-            if (distance < minDistance && distance <= AttackRange)
+            if (distance < minDistance && distance <= attackRange)
             {
                 result = child;
                 minDistance = distance;
