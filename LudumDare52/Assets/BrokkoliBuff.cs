@@ -31,9 +31,14 @@ public class BrokkoliBuff : MonoBehaviour
         GameObject plantSpawner = GameObject.Find("PlantSpawner");
         if (plantCount != plantSpawner.transform.childCount)
         {
-            UnBuffPlants();
-            BuffPlants();
+            ForceUpdate();
         }
+    }
+
+    public void ForceUpdate()
+    {
+        UnBuffPlants();
+        BuffPlants();
     }
 
     private void BuffPlants()
@@ -67,24 +72,24 @@ public class BrokkoliBuff : MonoBehaviour
 
     private void BuffPlant(GameObject obj)
     {
-        if (obj.name.Contains("Bell Pepper"))
+        if (obj.name.Equals("Bell Pepper(Clone)"))
         {
             PlantAttackStats stats = GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetBellPepperStats();
             obj.GetComponent<PaprikaAttack>().SetAttackCooldown(obj.GetComponent<PaprikaAttack>().GetAttackCooldown() - attackSpeedBuff);
         }
         /**
-        if (obj.name.Contains("Brokkoli"))
+        if (obj.name.Equals("Brokkoli(Clone)"))
         {
             PlantAttackStats stats = GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetBrokkoliStats();
             obj.GetComponent<BrokkoliBuff>().SetBuffDistance(obj.GetComponent<BrokkoliBuff>().GetBuffDistance() + stats.AttackRange);
         }
         */
-        if (obj.name.Contains("Carrot"))
+        if (obj.name.Equals("Carrot(Clone)"))
         {
             PlantAttackStats stats = GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetCarrotStats();
             obj.GetComponent<CarrotAttack>().SetAttackCooldown(obj.GetComponent<CarrotAttack>().GetAttackCooldown() - attackSpeedBuff);
         }
-        if (obj.name.Contains("Pumpkin"))
+        if (obj.name.Equals("Pumpkin(Clone)"))
         {
             PlantAttackStats stats = GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetPumpkinStats();
             obj.GetComponent<PumpkinAttack>().SetAttackDamage(obj.GetComponent<PumpkinAttack>().GetAttackDamage() + damageBuff);
@@ -93,24 +98,24 @@ public class BrokkoliBuff : MonoBehaviour
     
     private void UnBuffPlant(GameObject obj)
     {
-        if (obj.name.Contains("Bell Pepper"))
+        if (obj.name.Equals("Bell Pepper(Clone)"))
         {
             PlantAttackStats stats = GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetBellPepperStats();
             obj.GetComponent<PaprikaAttack>().SetAttackCooldown(obj.GetComponent<PaprikaAttack>().GetAttackCooldown() + attackSpeedBuff);
         }
         /**
-        if (obj.name.Contains("Brokkoli"))
+        if (obj.name.Equals("Brokkoli(Clone)"))
         {
             PlantAttackStats stats = GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetBrokkoliStats();
             obj.GetComponent<BrokkoliBuff>().SetBuffDistance(obj.GetComponent<BrokkoliBuff>().GetBuffDistance() - stats.AttackRange);
         }
         */
-        if (obj.name.Contains("Carrot"))
+        if (obj.name.Equals("Carrot(Clone)"))
         {
             PlantAttackStats stats = GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetCarrotStats();
             obj.GetComponent<CarrotAttack>().SetAttackCooldown(obj.GetComponent<CarrotAttack>().GetAttackCooldown() + attackSpeedBuff);
         }
-        if (obj.name.Contains("Pumpkin"))
+        if (obj.name.Equals("Pumpkin(Clone)"))
         {
             PlantAttackStats stats = GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetPumpkinStats();
             obj.GetComponent<PumpkinAttack>().SetAttackDamage(obj.GetComponent<PumpkinAttack>().GetAttackDamage() - damageBuff);

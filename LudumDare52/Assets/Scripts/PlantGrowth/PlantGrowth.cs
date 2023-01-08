@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class PlantGrowth : MonoBehaviour
 {
@@ -17,36 +18,56 @@ public class PlantGrowth : MonoBehaviour
     }
 
     private float growthTime;
+
+    private Tilemap tilemap;
     // Start is called before the first frame update
     void Start()
     {
+        tilemap = GameObject.Find("PlantSpawner").GetComponent<PlantPlacement>().Tilemap;
         StartCoroutine(
             GrowPlant(GetGrowthTime()));
     }
 
     private float GetGrowthTime()
     {
+        float growthTime;
         switch (type)
         {
             case PlantType.BellPepper:
-                return 
+                growthTime = 
                     GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetPumpkinStats().GrowthTime;
+                break;
             case PlantType.Brokkoli:
-                return 
+                growthTime = 
                     GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetBrokkoliStats().GrowthTime;
+                break;
             case PlantType.Carrot:
-                return 
+                growthTime = 
                     GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetCarrotStats().GrowthTime;
+                break;
             case PlantType.Corn:
-                return 
+                growthTime = 
                     GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetCornStats().GrowthTime;
+                break;
             case PlantType.Melon:
-                return 
+                growthTime = 
                     GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetMelonStats().GrowthTime;
+                break;
             default:
-                return 
+                growthTime = 
                     GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetPumpkinStats().GrowthTime;
+                break;
         }
+
+        Vector3Int positionToCheck = new Vector3Int((int)Mathf.Floor(transform.position.x),
+            (int)Mathf.Floor(transform.position.y), 0);  
+        
+        if (tilemap.GetTile(positionToCheck).ToString().Contains("watered"))
+        {
+            growthTime = growthTime * .5f;
+        }
+
+        return growthTime;
     }
 
     private IEnumerator GrowPlant(float growthTime)
@@ -54,6 +75,7 @@ public class PlantGrowth : MonoBehaviour
         yield return new WaitForSeconds(growthTime);
         GameObject currentPlant = GameObject.Instantiate(GrownPlantPrefab, transform.position, Quaternion.identity);
         currentPlant.transform.parent = GameObject.Find("PlantSpawner").transform;
+
         GameObject.Destroy(this.gameObject);
     }
 }
