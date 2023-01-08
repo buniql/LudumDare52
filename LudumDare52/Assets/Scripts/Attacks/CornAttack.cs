@@ -70,4 +70,14 @@ public class CornAttack : MonoBehaviour
             currentlyAttacking = false;
         }
     }
+
+    public void SetAttackCooldown(float value)
+    {
+        this.AttackCooldown = value;
+    }
+    
+    public float GetAttackCooldown()
+    {
+        return this.AttackCooldown;
+    }
 }

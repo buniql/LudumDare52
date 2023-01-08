@@ -78,13 +78,11 @@ public class BrokkoliBuff : MonoBehaviour
             PlantStat stats = GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetBellPepperStats();
             obj.GetComponent<PaprikaAttack>().SetAttackCooldown(obj.GetComponent<PaprikaAttack>().GetAttackCooldown() - attackSpeedBuff);
         }
-        /**
-        if (obj.name.Equals("Brokkoli(Clone)"))
+        if (obj.name.Equals("Corn(Clone)"))
         {
-            PlantAttackStats stats = GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetBrokkoliStats();
-            obj.GetComponent<BrokkoliBuff>().SetBuffDistance(obj.GetComponent<BrokkoliBuff>().GetBuffDistance() + stats.AttackRange);
+            PlantStat stats = GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetCarrotStats();
+            obj.GetComponent<CornAttack>().SetAttackCooldown(obj.GetComponent<CornAttack>().GetAttackCooldown() - attackSpeedBuff);
         }
-        */
         if (obj.name.Equals("Carrot(Clone)"))
         {
             PlantStat stats = GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetCarrotStats();
@@ -104,13 +102,11 @@ public class BrokkoliBuff : MonoBehaviour
             PlantStat stats = GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetBellPepperStats();
             obj.GetComponent<PaprikaAttack>().SetAttackCooldown(obj.GetComponent<PaprikaAttack>().GetAttackCooldown() + attackSpeedBuff);
         }
-        /**
-        if (obj.name.Equals("Brokkoli(Clone)"))
+        if (obj.name.Equals("Corn(Clone)"))
         {
-            PlantAttackStats stats = GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetBrokkoliStats();
-            obj.GetComponent<BrokkoliBuff>().SetBuffDistance(obj.GetComponent<BrokkoliBuff>().GetBuffDistance() - stats.AttackRange);
+            PlantStat stats = GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetCarrotStats();
+            obj.GetComponent<CornAttack>().SetAttackCooldown(obj.GetComponent<CornAttack>().GetAttackCooldown() + attackSpeedBuff);
         }
-        */
         if (obj.name.Equals("Carrot(Clone)"))
         {
             PlantStat stats = GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetCarrotStats();
