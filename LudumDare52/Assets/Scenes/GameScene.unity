@@ -13887,7 +13887,7 @@ MonoBehaviour:
     BuyPrice: 5
     SellPrice: 7
   - Name: Corn
-    AttackRange: 2.5
+    AttackRange: 1.5
     AttackCooldown: 0.1
     AttackDamage: 1
     GrowthTime: 5
