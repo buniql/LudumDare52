@@ -20070,7 +20070,7 @@ MonoBehaviour:
   snailPrefab: {fileID: 1902853439879365758, guid: 7d4324671812f3c439612ea0c4ae50c4, type: 3}
   SpawnPosition: {x: -15.5, y: 0.5, z: -1}
   timeBetweenWaves: 10
-  beginWithWave: 24
+  beginWithWave: 0
   CurrentWaveText: {fileID: 309014997}
 --- !u!4 &1333557181
 Transform:
@@ -20131,8 +20131,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38009f11d44843b4bb0d0163015a8ec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 100
-  Coins: 0
+  StartHealth: 100
+  StartCoins: 5
   HealthText: {fileID: 1616413218}
   CoinsText: {fileID: 319180504}
 --- !u!1 &1468587482
