@@ -1993,7 +1993,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 7.34375
+  orthographic size: 6.3541665
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -11064,21 +11064,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - packs:
+  - timeBetweenPacks: 2
+    packs:
+    - type: 0
+      amount: 1
+      timeBetweenSpawn: 0
+  - timeBetweenPacks: 2
+    packs:
+    - type: 0
+      amount: 3
+      timeBetweenSpawn: 0.6
+  - timeBetweenPacks: 2
+    packs:
+    - type: 1
+      amount: 3
+      timeBetweenSpawn: 0.5
+  - timeBetweenPacks: 2
+    packs:
+    - type: 1
+      amount: 5
+      timeBetweenSpawn: 0.4
+  - timeBetweenPacks: 2
+    packs:
     - type: 0
       amount: 5
       timeBetweenSpawn: 0.5
-  - packs:
     - type: 1
-      amount: 8
+      amount: 5
       timeBetweenSpawn: 0.4
-  - packs:
-    - type: 3
-      amount: 20
-      timeBetweenSpawn: 0.4
-    - type: 6
-      amount: 1
-      timeBetweenSpawn: 1
   ladybugPrefab: {fileID: 1902853439879365758, guid: f4e6be5ff4fd5e04a8255af534c36134, type: 3}
   antPrefab: {fileID: 1902853439879365758, guid: a0c0e38113f1dd24289b9549d47d0022, type: 3}
   beetlePrefab: {fileID: 1902853439879365758, guid: c588ae9562c9cfc40ad47a73f783545e, type: 3}
@@ -11087,8 +11100,7 @@ MonoBehaviour:
   beePrefab: {fileID: 1902853439879365758, guid: cf33971a433e55349a36285c9e7fa9ca, type: 3}
   snailPrefab: {fileID: 1902853439879365758, guid: 7d4324671812f3c439612ea0c4ae50c4, type: 3}
   SpawnPosition: {x: -12.5, y: 0.5, z: -1}
-  timeBetweenWaves: 10
-  timeBetweenPacks: 2
+  timeBetweenWaves: 8
 --- !u!4 &1333557181
 Transform:
   m_ObjectHideFlags: 0

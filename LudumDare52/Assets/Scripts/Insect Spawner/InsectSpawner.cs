@@ -17,12 +17,26 @@ public class Pack
     public InsectEnum type;
     public int amount;
     public float timeBetweenSpawn;
+
+    public float TimeNeeded()
+    {
+        return timeBetweenSpawn*(amount-1);
+    }
 }
 
 [System.Serializable]
 public class Wave
 {
+    public float timeBetweenPacks = 2f;
     public List<Pack> packs;
+
+    public float TimeNeeded()
+    {
+        float t = 0f;
+        for (int i = 0; i < packs.Count; i++)
+            t += packs[i].TimeNeeded();
+        return t + (packs.Count - 1) * timeBetweenPacks;
+    }
 }
 
 public class InsectSpawner : MonoBehaviour
@@ -40,7 +54,6 @@ public class InsectSpawner : MonoBehaviour
     public Vector3 SpawnPosition;
 
     public float timeBetweenWaves = 15f;
-    public float timeBetweenPacks = 2f;
 
     private void Start()
     {
@@ -52,7 +65,7 @@ public class InsectSpawner : MonoBehaviour
         for (int i = 0; i < waves.Count; i++)
         {
             StartCoroutine(SpawnWave(waves[i]));
-            yield return new WaitForSeconds(timeBetweenWaves);
+            yield return new WaitForSeconds(timeBetweenWaves + waves[i].TimeNeeded());
         }
     }
 
@@ -61,7 +74,7 @@ public class InsectSpawner : MonoBehaviour
         for (int i = 0; i < wave.packs.Count; i++)
         {
             StartCoroutine(SpawnPack(wave.packs[i]));
-            yield return new WaitForSeconds(timeBetweenPacks);
+            yield return new WaitForSeconds(wave.timeBetweenPacks + wave.packs[i].TimeNeeded());
         }
     }
 
