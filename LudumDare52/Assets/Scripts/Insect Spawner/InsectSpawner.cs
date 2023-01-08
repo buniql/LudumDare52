@@ -123,10 +123,6 @@ public class InsectSpawner : MonoBehaviour
             yield return new WaitForSeconds(timeBetweenWaves + waves[i].TimeNeeded());
         }
 
-        while (GameObject.Find("InsectSpawner").transform.childCount > 0)
-        {
-        }
-        
         GameObject.Find("Sound").GetComponent<Sound>().PlaySound(8); 
     }
 
