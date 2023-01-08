@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using System.Globalization;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public enum InsectEnum
@@ -57,6 +59,11 @@ public class InsectSpawner : MonoBehaviour
     public float timeBetweenWaves = 15f;
 
     public int beginWithWave = 0;
+
+    public GameObject WinMessageText;
+    
+    private bool endFight = false;
+    private bool endFightDone = false;
 
     private void ReadWaveDataFromCSV()
     {
@@ -123,7 +130,15 @@ public class InsectSpawner : MonoBehaviour
             yield return new WaitForSeconds(timeBetweenWaves + waves[i].TimeNeeded());
         }
 
-        GameObject.Find("Sound").GetComponent<Sound>().PlaySound(8); 
+        endFight = true;
+    }
+
+    private IEnumerator WinMessage()
+    {
+        WinMessageText.SetActive(true);
+        GameObject.Find("Sound").GetComponent<Sound>().PlaySound(8);
+        yield return new WaitForSeconds(6);
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
 
     private IEnumerator SpawnWave(Wave wave)
@@ -169,5 +184,17 @@ public class InsectSpawner : MonoBehaviour
 
         // nOt AlL cOdE pAtHs ReTuRn A vAlUe
         return antPrefab;
+    }
+
+    private void Update()
+    {
+        if (endFight && GameObject.Find("InsectSpawner").transform.childCount == 0)
+        {
+            endFightDone = true;
+        }
+        if (endFight && endFightDone)
+        {
+            StartCoroutine(WinMessage());
+        }
     }
 }
