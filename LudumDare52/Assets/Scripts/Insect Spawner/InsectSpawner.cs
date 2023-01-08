@@ -99,11 +99,11 @@ public class InsectSpawner : MonoBehaviour
 
             waves.Add(wave);
         }
-
+        /*
         for (int wave = 0; wave < waves.Count; wave++)
         {
             Debug.Log("wave " + wave + " starts with " + waves[wave].packs[0].amount + " " + waves[wave].packs[0].type + " (time between spawns: " + waves[wave].packs[0].timeBetweenSpawn);
-        }
+        }*/
     }
 
     public TMP_Text CurrentWaveText;
