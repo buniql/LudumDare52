@@ -10753,6 +10753,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1902226923}
   - component: {fileID: 1902226924}
+  - component: {fileID: 1902226925}
   m_Layer: 0
   m_Name: PlantSpawner
   m_TagString: Untagged
@@ -10796,6 +10797,43 @@ MonoBehaviour:
   Tilemap: {fileID: 840806172}
   Camera: {fileID: 519420031}
   MouseOffset: {x: 0.5, y: 0.5}
+--- !u!114 &1902226925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902226922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14d9947394eacac449524a68dd7c49dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Stats:
+  - Name: Bell Pepper
+    AttackRange: 2
+    AttackCooldown: 0.3
+    AttackDamage: 1
+  - Name: Brokkoli
+    AttackRange: 1
+    AttackCooldown: 0
+    AttackDamage: 0
+  - Name: Carrot
+    AttackRange: 5
+    AttackCooldown: 1
+    AttackDamage: 4
+  - Name: Corn
+    AttackRange: 2.5
+    AttackCooldown: 0.025
+    AttackDamage: 1
+  - Name: Melon
+    AttackRange: 2
+    AttackCooldown: 0
+    AttackDamage: 100000
+  - Name: Pumpkin
+    AttackRange: 2
+    AttackCooldown: 5
+    AttackDamage: 8
 --- !u!1 &1997063097
 GameObject:
   m_ObjectHideFlags: 0

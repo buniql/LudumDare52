@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PaprikaAttack : MonoBehaviour
 {
-    public float AttackRange;
+    private float attackRange;
 
-    public float AttackCooldown;
+    private float attackCooldown;
 
     public GameObject WeaponPrefab;
 
@@ -15,6 +15,13 @@ public class PaprikaAttack : MonoBehaviour
     private Transform attackTarget;
     private bool currentlyAttacking = false;
 
+    private void Start()
+    {
+        PlantAttackStats stats = GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetBellPepperStats();
+        attackRange = stats.AttackRange;
+        attackCooldown = stats.AttackCooldown;
+    }
+    
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -33,7 +40,7 @@ public class PaprikaAttack : MonoBehaviour
         foreach (Transform child in insectSpawner.transform)
         {
             float distance = Vector3.Distance(transform.position, child.position);
-            if (distance < minDistance && distance <= AttackRange)
+            if (distance < minDistance && distance <= attackRange)
             {
                 result = child;
                 minDistance = distance;
@@ -59,7 +66,7 @@ public class PaprikaAttack : MonoBehaviour
                 GameObject.Instantiate(WeaponPrefab, new Vector3(transform.position.x, transform.position.y, -1), Quaternion.Euler(new Vector3(0,0, angle)));
             }
 
-            yield return new WaitForSeconds(AttackCooldown);
+            yield return new WaitForSeconds(attackCooldown);
             currentlyAttacking = false;
         }
     }

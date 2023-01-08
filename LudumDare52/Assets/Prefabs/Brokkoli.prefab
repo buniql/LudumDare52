@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4283932796970159398}
   - component: {fileID: 4283932796970159397}
+  - component: {fileID: -5199181920915400466}
   m_Layer: 0
   m_Name: Brokkoli
   m_TagString: Untagged
@@ -84,3 +85,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-5199181920915400466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4283932796970159396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5b1e1d9ca65a244dab754ab14509bde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

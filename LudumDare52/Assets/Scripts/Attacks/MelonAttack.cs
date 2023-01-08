@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,11 @@ public class MelonAttack : MonoBehaviour
     private bool activated = false;
     private Transform attackTarget;
     private Vector3 direction;
+
+    private void Start()
+    {
+        PlantAttackStats stats = GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetMelonStats();
+    }
 
     // Update is called once per frame
     void FixedUpdate()

@@ -16,6 +16,7 @@ public class PumpkinAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PlantAttackStats stats = GameObject.Find("PlantSpawner").GetComponent<PlantStats>().GetPumpkinStats();
         startPosition = transform.position;
     }
 
@@ -31,7 +32,6 @@ public class PumpkinAttack : MonoBehaviour
                         .normalized * (MovementSpeed * Time.fixedDeltaTime);
                 if (Vector3.Distance(transform.position,startPosition) >= Vector3.Distance(targetPosition, startPosition))
                 {
-                    Debug.Log("I wanna go home now");
                     homing = true;
                 }
             }
@@ -40,9 +40,8 @@ public class PumpkinAttack : MonoBehaviour
                 transform.position +=
                     new Vector3(startPosition.x - transform.position.x, startPosition.y - transform.position.y, 0)
                         .normalized * (MovementSpeed * Time.fixedDeltaTime);
-                if (Vector3.Distance(targetPosition, transform.position) >= Vector3.Distance(targetPosition, startPosition))
+                if (Vector3.Distance(targetPosition, transform.position) >= Vector3.Distance(targetPosition, startPosition) - .2f)
                 {
-                    Debug.Log("I arrived at home");
                     transform.position = startPosition;
                     activated = false;
                     homing = false;
@@ -52,7 +51,6 @@ public class PumpkinAttack : MonoBehaviour
         attackTarget = FindNearestTarget();
         if (attackTarget != null && !activated)
         {
-            Debug.Log("Im going to kill those pesants");
             activated = true;
             targetPosition = attackTarget.position;
         }
