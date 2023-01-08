@@ -73,11 +73,11 @@ public class CornAttack : MonoBehaviour
 
     public void SetAttackCooldown(float value)
     {
-        this.AttackCooldown = value;
+        this.attackCooldown = value;
     }
     
     public float GetAttackCooldown()
     {
-        return this.AttackCooldown;
+        return this.attackCooldown;
     }
 }
