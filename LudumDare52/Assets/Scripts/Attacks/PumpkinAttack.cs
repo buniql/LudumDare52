@@ -36,7 +36,7 @@ public class PumpkinAttack : MonoBehaviour
             {
                 transform.position +=
                     new Vector3(targetPosition.x - transform.position.x, targetPosition.y - transform.position.y, 0)
-                        .normalized * (MovementSpeed * Time.fixedDeltaTime);
+                        .normalized * (movementSpeed * Time.fixedDeltaTime);
                 if (Vector3.Distance(transform.position,startPosition) >= Vector3.Distance(targetPosition, startPosition) - .1f)
                 {
                     dealDamage = true;
